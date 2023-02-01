@@ -4,25 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Babylon Template</title>
-        <style>
-            html, body {
-                overflow: hidden;
-                width: 100%;
-                height: 100%;
-                margin: 0;
-                padding: 0;
-                background-color: blueviolet;
-            }
-            #renderCanvas {
-                margin-left: auto;
-                margin-right: auto;
-                margin-top: 100px;
-                display: block;
-                width: 80%;
-                height: 80%;
-                touch-action: none;
-            }
-        </style>
+        <link rel="stylesheet" href="diorama.css">
         <script src="https://cdn.babylonjs.com/babylon.js"></script>
         <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
     </head>
@@ -34,6 +16,7 @@
         const createScene = function () {
             // Creates a basic Babylon Scene object
             const scene = new BABYLON.Scene(engine);
+            scene.clearColor = BABYLON.Color3.White();
             // Creates and positions a free camera
             const camera = new BABYLON.FreeCamera("camera1",
                 new BABYLON.Vector3(0, 0, 10), scene);
@@ -46,7 +29,7 @@
                 new BABYLON.Vector3(0, 1, 0), scene);
             // Dim the light a small amount - 0 to 1
             light.intensity = 0.7;
-            BABYLON.SceneLoader.Append("../assets/gltf/", "suzanne.gltf", scene);
+            BABYLON.SceneLoader.Append("../assets/", "suzanne.gltf", scene);
             return scene;
         };
         const scene = createScene(); //Call the createScene function

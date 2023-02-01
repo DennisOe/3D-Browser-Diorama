@@ -1,0 +1,17 @@
+html, body {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: blueviolet;
+}
+#renderCanvas {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    display: block;
+    width: 100%;
+    height: 100%;
+    touch-action: none;
+}
