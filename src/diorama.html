@@ -3,18 +3,20 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Babylon Template</title>
+        <title>3D-Browser-Diorama</title>
         <link rel="stylesheet" href="diorama.css">
+        <!-- Babylonjs cdn imports -->
         <script src="https://cdn.babylonjs.com/babylon.js"></script>
         <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
+        <!-- Render scene main script -->
+        <script type="module">
+            import { RenderScene } from "./diorama.js";
+            const canvas = document.getElementById("renderCanvas");
+            new RenderScene(canvas, ["diorama.glb"]);
+        </script>
     </head>
-   <body>
-    <canvas id="renderCanvas"></canvas>
-    <script type="module">
-        import { RenderScene } from "./diorama.js";
-        const canvas = document.getElementById("renderCanvas");
-        new RenderScene(canvas);
-    </script>
-   </body>
-
+    <body>
+        <p id="debug"></p>
+        <canvas id="renderCanvas"></canvas>
+    </body>
 </html>
