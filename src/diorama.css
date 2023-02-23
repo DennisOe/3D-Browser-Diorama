@@ -4,15 +4,21 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    background-color: blueviolet;
+    background-color: gray;
 }
-#renderCanvas {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 100px;
+
+h1 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.5em;
+    text-align: center;
+    color: white;
+}
+
+canvas {
+    margin: 1em auto 0 auto;
     display: block;
     width: 95%;
-    height: 80%;
+    height: 70%;
     touch-action: none;
-    outline: none;
+    outline: 0.1em solid dimgray;
 }
