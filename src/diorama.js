@@ -1,8 +1,8 @@
 export class RenderScene {
     constructor(canvas, assetsArray) {
         this.engine = new BABYLON.Engine(canvas, true);
-        this.canvas = canvas
-        this.assetsArray = assetsArray
+        this.canvas = canvas;
+        this.assetsArray = assetsArray;
         this.scene = this.CreateScene();
         // render loop
         this.engine.runRenderLoop(() => {
