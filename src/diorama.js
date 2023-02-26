@@ -2,6 +2,7 @@ export class RenderScene {
     constructor(canvas, assetsArray) {
         this.engine = new BABYLON.Engine(canvas, true);
         this.canvas = canvas;
+        this.assets = []
         this.assetsArray = assetsArray;
         this.scene = this.CreateScene();
         // render loop
@@ -38,8 +39,11 @@ export class RenderScene {
 
     LoadAssets(assetsArray, scene) {
         // Load assets from given array
-        assetsArray.forEach(eachAsset => {
-            BABYLON.SceneLoader.Append("../assets/", eachAsset, scene);
+        assetsArray.forEach(async eachAsset => {
+            const { geometries } = await BABYLON.SceneLoader.AppendAsync("../assets/", eachAsset, scene);
+            geometries.forEach(node => {
+                this.assets.push(node)
+            });
         });
     }
 }
