@@ -1,9 +1,14 @@
 export class RenderScene {
+    canvas;
+    assetsArray;
+    assetsImported;
+    engine;
+    camera;
+    scene;
+
     constructor(canvas, assetsArray) {
         this.canvas = canvas;
-        this.assets = [];
         this.assetsArray = assetsArray;
-        this.camera;
         this.engine = new BABYLON.Engine(canvas, true);
         this.scene = this.CreateScene();
         // render loop
@@ -26,7 +31,7 @@ export class RenderScene {
         const light = new BABYLON.HemisphericLight("lightKey",
                                                    new BABYLON.Vector3(0, 1, 0),
                                                    scene);
-        light.intensity = 0.7;
+        light.intensity = 1;
         // assets
         this.LoadAssets(this.assetsArray, scene);
         return scene;
@@ -42,8 +47,8 @@ export class RenderScene {
         camera.attachControl(this.canvas, false);
         camera.wheelPrecision = 50;
         camera.panningSensibility = 0;
-        camera.lowerRadiusLimit = 5;
         camera.upperRadiusLimit = 25;
+        camera.lowerRadiusLimit = 5;
         camera.upperBetaLimit = Math.PI / 1.9;
         camera.lowerBetaLimit = Math.PI / 10;
         return camera;
@@ -54,7 +59,7 @@ export class RenderScene {
         assetsArray.forEach(async eachAsset => {
             const { meshes } = await BABYLON.SceneLoader.AppendAsync("../assets/", eachAsset, scene);
             meshes.forEach(node => {
-                this.assets.push(node)
+                this.assetsImported.push(node)
             });
         });
     }
