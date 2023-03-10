@@ -17,3 +17,5 @@ for each_object in bpy.data.objects:
 
 export(dict(type="gltf",
             path=bpy.data.filepath.split("blender")[0] + "diorama.glb"))
+
+bpy.ops.wm.open_mainfile(filepath=bpy.data.filepath)
